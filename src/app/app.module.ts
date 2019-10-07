@@ -4,18 +4,23 @@ import { NgModule } from '@angular/core';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-
-import { CalendarModule } from 'primeng/calendar';
+import { PrimengModule } from './primeng.module';
+import { LoginComponent } from './login/login.component';
+import { RestrictedModule } from './restricted/restricted.module';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
     AppRoutingModule,
-    CalendarModule
+    HttpClientModule,
+    PrimengModule,
+    RestrictedModule
   ],
   providers: [],
   bootstrap: [AppComponent]

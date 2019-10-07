@@ -1,1 +1,40 @@
 /* You can add global styles to this file, and also import other style files */
+$fontFamily: Arial, Verdana;
+$fontSize: 10pt;
+
+body {
+    margin: 0;    
+    font-family: $fontFamily;
+    font-size: $fontSize;
+
+    router-outlet ~ * {
+        position: absolute;
+        /*height: 100%;*/
+        width: 100%;
+    }
+
+    .container {
+        margin: 0 auto;
+        padding: 0 auto;
+        width: 100%;
+    }
+
+    .inner-content {
+        padding: 10px;
+    }
+
+    .button-bar {
+        text-align: right;
+        
+        * {
+            margin: 2px;
+        }
+    }
+
+    h3 {
+        padding: 0px;
+        margin-top: -5px;
+    }
+    
+}
+
