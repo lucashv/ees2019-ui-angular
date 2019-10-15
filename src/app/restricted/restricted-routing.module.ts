@@ -14,7 +14,7 @@ const restrictedRoutes: Routes = [
                 path: 'cliente',
                 component: ClienteListComponent
             },
-            { path: '**', redirectTo: 'default' }
+            { path: '**', redirectTo: 'cliente' }
         ]
     }
 ];

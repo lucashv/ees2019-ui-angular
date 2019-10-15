@@ -1,14 +1,17 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
+import { BaseService } from './base.service';
 
 @Injectable({
   providedIn: 'root'
 })
-export class ClienteService {
+export class ClienteService extends BaseService {
 
-  constructor(private httpClient: HttpClient) { }
+  constructor(httpClient: HttpClient) {
+    super(httpClient);
+  }
 
   getAll() {
-    return this.httpClient.get('http://localhost:8000/api/cliente');
+    return this.doGet('/cliente');
   }
 }

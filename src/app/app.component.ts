@@ -6,5 +6,5 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-  title = 'ees2019-ui-angular';
+  title = 'Trabalho EES2019 - Java Web';
 }

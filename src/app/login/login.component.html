@@ -1,1 +1,21 @@
-<h3>Login</h3>
+<div class="ui-g login-container">
+    <div class="ui-sm-12 ui-md-6 ui-lg-3 login">
+        <form (ngSubmit)="onLogin()">
+            <div class="ui-g">                       
+                <div class="ui-sm-12 ui-md-12 ui-fluid">
+                    <label for="itUsuario">Usuário:</label>
+                    <input id="itUsuario" type="text" pInputText />  
+                </div>
+
+                <div class="ui-sm-12 ui-md-12 ui-fluid">
+                    <label for="pwPassword">Senha:</label>
+                    <input id="pwPassword" type="password" pPassword />
+                </div>            
+                
+                <div class="ui-sm-12 ui-md-12 ui-fluid">                
+                    <button id="btEntrar" type="submit" label="Entrar" pButton icon="pi pi-sign-in" iconPos="right" ></button>
+                </div>            
+            </div>
+        </form>
+    </div>
+</div>
