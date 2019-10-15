@@ -20,6 +20,7 @@ export class LoginComponent implements OnInit {
   onLogin(): void {
     this.loginService.doLogin('admin', 'admin').subscribe(
       ret => {
+        console.log('Login efetuado com sucesso. Token: ' + ret[0]);
         localStorage.setItem('TOKEN', ret[0]);
         this.router.navigate(['/restricted']);
       },

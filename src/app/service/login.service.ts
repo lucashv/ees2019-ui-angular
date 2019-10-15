@@ -16,7 +16,7 @@ export class LoginService extends BaseService {
       username,
       password
     };
-    return this.doPost('/login', body);
+    return super.doLogin(body);
   }
 
 }
