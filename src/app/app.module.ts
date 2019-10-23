@@ -9,6 +9,7 @@ import { LoginComponent } from './login/login.component';
 import { RestrictedModule } from './restricted/restricted.module';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { InterceptorModule } from './auth/interceptor.module';
 
 @NgModule({
   declarations: [
@@ -23,6 +24,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     ReactiveFormsModule,
     HttpClientModule,
     PrimengModule,
+    InterceptorModule,
     RestrictedModule
   ],
   providers: [],

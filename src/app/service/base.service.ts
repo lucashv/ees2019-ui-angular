@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpResponse } from '@angular/common/http';
+import { Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -20,8 +21,8 @@ export class BaseService {
     return this.httpClient.get(this.getAPIUrl(endpoint));
   }
 
-  protected doLogin(body: any, options?: any) {
-    return this.httpClient.post(this.BASE_API_URL + '/login', body, options);
+  protected doLogin(body: any) {
+    return this.httpClient.post<any>(this.BASE_API_URL + '/login', body, { observe: 'response' });
   }
 
   protected doPost(endpoint: string, body: any, options?: any) {

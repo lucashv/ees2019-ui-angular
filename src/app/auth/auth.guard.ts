@@ -1,16 +1,15 @@
 import { Injectable } from '@angular/core';
-import { 
+import {
   CanActivate, CanActivateChild, CanLoad, Route, UrlSegment, ActivatedRouteSnapshot,
   RouterStateSnapshot, UrlTree, Router } from '@angular/router';
-import { Observable } from 'rxjs';
+import { AppSettings } from '../utils/AppSettings';
 
 @Injectable({
   providedIn: 'root'
 })
 export class AuthGuard implements CanActivate, CanActivateChild, CanLoad {
-  constructor(
-    private router: Router
-  ) {
+
+  constructor(private router: Router) {
   }
 
   canActivate(
@@ -35,8 +34,16 @@ export class AuthGuard implements CanActivate, CanActivateChild, CanLoad {
     return true;
   }
 
+  getLoginToken(): string {
+    return localStorage.getItem(AppSettings.loginTokenKey);
+  }
+
+  setLoginToken(token: string) {
+    localStorage.setItem(AppSettings.loginTokenKey, token);
+  }
+
   private isLogged(): boolean {
-    const logged = localStorage.getItem('isLogged');
-    return logged !== undefined && logged === 'true';
+    const logged = this.getLoginToken();
+    return logged !== undefined && logged !== '';
   }
 }

@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { LoginService } from '../service/login.service';
+import { AppSettings } from '../utils/AppSettings';
+import { AuthGuard } from '../auth/auth.guard';
 
 @Component({
   selector: 'app-login',
@@ -11,21 +13,26 @@ export class LoginComponent implements OnInit {
 
   constructor(
     private router: Router,
-    private loginService: LoginService
+    private loginService: LoginService,
+    private auth: AuthGuard
   ) { }
 
   ngOnInit() {
   }
 
   onLogin(): void {
-    this.loginService.doLogin('admin', 'admin').subscribe(
-      ret => {
-        console.log('Login efetuado com sucesso. Token: ' + ret[0]);
-        localStorage.setItem('TOKEN', ret[0]);
+    console.log('Tentando logar...');
+    this.loginService.login('admin', 'admin').subscribe(
+      resp => {
+        if (resp === null || resp === undefined || resp.headers === null) {
+          return;
+        }
+        console.log('Setando o token: ' + resp.headers.get(AppSettings.authorizationHeader));
+        this.auth.setLoginToken(resp.headers.get(AppSettings.authorizationHeader));
         this.router.navigate(['/restricted']);
       },
       err => {
-        console.log('Houve um erro ao tentar realizar a autenticação. Erro: ' + err);
+        console.log(err);
       }
     );
   }
