@@ -18,13 +18,9 @@ body {
         padding: 0 auto;
         width: 100%;
     }
-
-    .inner-content {
-        padding: 10px;
-    }
-
+   
     .main-content {
-        padding: 10px;
+        margin: 20px;
     }
 
     .button-bar {
@@ -43,5 +39,37 @@ body {
         text-align: center;
         font-size: 0.8em;
     }
+
+    hr {
+        border-top: 1px solid #8c8b8b; 
+        border-bottom: 0px;
+    }
+
+    .button-bar {
+        text-align: right;
+        
+        * {
+            margin: 2px;
+        }
+    }
+
+    .button, button {
+        display: inline-flex;
+        align-items: center;
+        padding: 8px 16px;
+        border-radius: 2px;
+        font-size: $fontSize;
+        cursor: pointer;
+        background-color: #007ad9;
+        color: white;
+        border: none;
+    }
+    
+    .button:hover, button:hover {
+        opacity: 0.8;
+        font-weight: normal;
+        color: white;
+    }
+
 }
 

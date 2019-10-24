@@ -3,6 +3,7 @@ import { Routes, RouterModule } from '@angular/router';
 import { AuthGuard } from '../auth/auth.guard';
 import { HomeComponent } from './home/home.component';
 import { ClienteListComponent } from './cliente/cliente-list/cliente-list.component';
+import { ClienteFormComponent } from './cliente/cliente-form/cliente-form.component';
 
 const restrictedRoutes: Routes = [
     {
@@ -10,10 +11,8 @@ const restrictedRoutes: Routes = [
         canActivate: [AuthGuard],
         component: HomeComponent,
         children: [
-            {
-                path: 'cliente',
-                component: ClienteListComponent
-            },
+            { path: 'cliente', component: ClienteListComponent },
+            { path: 'cliente/form', component: ClienteFormComponent },
             { path: '**', redirectTo: 'cliente' }
         ]
     }

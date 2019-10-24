@@ -1,5 +1,9 @@
 <div class="main-content">
     <h3>Clientes</h3>
+    <hr/>
+    <p>
+        <p-button label="Novo" (click)="abrirForm()"></p-button>
+    </p>
     <p-table [value]="clientes" tableStyleClass="prime-table">
         <ng-template pTemplate="header">
             <tr>
