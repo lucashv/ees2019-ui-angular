@@ -11,6 +11,10 @@ export class HttpRequestInterceptor implements HttpInterceptor {
     ) {}
 
     intercept(req: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
+        const loginToken = this.auth.getLoginToken();
+        if (loginToken === null || loginToken === undefined || loginToken === '') {
+            return next.handle(req);
+        }
         const dupReq = req.clone({
             headers: req.headers.set(AppSettings.authorizationHeader, this.auth.getLoginToken()),
         });

@@ -10,7 +10,7 @@ const routes: Routes = [
     canLoad: [AuthGuard],
     loadChildren: () => import('./restricted/restricted.module').then(mod => mod.RestrictedModule)
   },
-  { path: '', pathMatch: 'full', redirectTo: '/restricted' }
+  { path: '', pathMatch: 'full', redirectTo: '/restricted/cliente' }
 ];
 
 @NgModule({

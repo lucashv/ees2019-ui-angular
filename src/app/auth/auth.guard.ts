@@ -22,15 +22,11 @@ export class AuthGuard implements CanActivate, CanActivateChild, CanLoad {
     return false;
   }
 
-  canActivateChild(
-    next: ActivatedRouteSnapshot,
-    state: RouterStateSnapshot): boolean {
+  canActivateChild(next: ActivatedRouteSnapshot, state: RouterStateSnapshot): boolean {
     return true;
   }
 
-  canLoad(
-    route: Route,
-    segments: UrlSegment[]): boolean {
+  canLoad(route: Route, segments: UrlSegment[]): boolean {
     return true;
   }
 
@@ -39,11 +35,17 @@ export class AuthGuard implements CanActivate, CanActivateChild, CanLoad {
   }
 
   setLoginToken(token: string) {
+    localStorage.setItem(AppSettings.isLoggedKey, 'true');
     localStorage.setItem(AppSettings.loginTokenKey, token);
   }
 
+  logout() {
+    localStorage.setItem(AppSettings.isLoggedKey, 'false');
+    localStorage.removeItem(AppSettings.loginTokenKey);
+  }
+
   private isLogged(): boolean {
-    const logged = this.getLoginToken();
-    return logged !== undefined && logged !== '';
+    const logged = localStorage.getItem(AppSettings.isLoggedKey);
+    return logged !== undefined && logged === 'true';
   }
 }
