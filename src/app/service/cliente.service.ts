@@ -17,10 +17,7 @@ export class ClienteService extends BaseService {
     return this.doGet(this.APINAME);
   }
 
-  save(cliente: Cliente) {
-    const body = {
-      cliente
-    };
-    return this.doPost(this.APINAME, body);
+  save(cliente: Cliente) {    
+    return this.doPost(this.APINAME, cliente);
   }
 }

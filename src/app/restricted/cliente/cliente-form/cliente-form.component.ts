@@ -30,8 +30,15 @@ export class ClienteFormComponent implements OnInit {
   }
 
   onSubmitForm() {
-    console.log(this.clienteForm.value);
-    this.clienteService.save(this.clienteForm.value).subscribe(
+    const clienteDto = {
+      id: this.clienteForm.get('id').value === '' ? null : this.clienteForm.get('id').value,
+      cpf: this.clienteForm.get('cpf').value,
+      nome: this.clienteForm.get('nome').value,
+      sobrenome: this.clienteForm.get('sobrenome').value,
+      email: this.clienteForm.get('email').value,
+      senha: this.clienteForm.get('senha').value
+    };
+    this.clienteService.save(clienteDto).subscribe(
       ret => {
         this.messageService.add({severity: 'success', summary: 'Sucesso', detail: 'Cliente Salvo com sucesso!'});
         this.router.navigate(['/restricted/cliente']);
