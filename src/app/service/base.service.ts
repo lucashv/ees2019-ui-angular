@@ -25,15 +25,15 @@ export class BaseService {
     return this.httpClient.post<any>(this.BASE_API_URL + '/login', body, { observe: 'response' });
   }
 
-  protected doPost(endpoint: string, body: any, options?: any) {
-    return this.httpClient.post(this.getAPIUrl(endpoint), body, options);
+  protected doPost(endpoint: string, body: any) {
+    return this.httpClient.post(this.getAPIUrl(endpoint), body, { observe: 'response' });
   }
 
-  protected doPut(endpoint: string, body: any, options?: any) {
-    return this.httpClient.put(this.getAPIUrl(endpoint), body, options);
+  protected doPut(endpoint: string, body: any) {
+    return this.httpClient.put(this.getAPIUrl(endpoint), body, { observe: 'response' });
   }
 
-  protected doDelete(endpoint: string, options?: any) {
-    return this.httpClient.delete(this.getAPIUrl(endpoint), options);
+  protected doDelete(endpoint: string) {
+    return this.httpClient.delete(this.getAPIUrl(endpoint), { observe: 'response' });
   }
 }

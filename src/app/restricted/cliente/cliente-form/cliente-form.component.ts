@@ -30,12 +30,12 @@ export class ClienteFormComponent implements OnInit {
 
   ngOnInit() {
     let id = null;
-    this.route.queryParams.subscribe(p => {
-      id = p['id'];
+    this.route.paramMap.subscribe(p => {
+      id = p.get('id');
     });
     if (id !== null) {
       this.clienteService.getById(id).subscribe(
-        ret => {
+        (ret: Cliente) => {
           const cli: Cliente = ret;
           this.clienteForm.setValue({
             id: cli.id,

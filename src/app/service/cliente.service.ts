@@ -24,4 +24,8 @@ export class ClienteService extends BaseService {
   save(cliente: Cliente) {
     return this.doPost(this.APINAME, cliente);
   }
+
+  excluir(id: number) {
+    return this.doDelete(this.APINAME + '/' + id);
+  }
 }

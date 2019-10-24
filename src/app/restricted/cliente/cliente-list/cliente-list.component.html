@@ -16,13 +16,11 @@
         </ng-template>
         <ng-template pTemplate="body" let-cli>
             <tr>
-                <td><a href="/restricted/cliente/form?id={{cli.id}}">{{cli.cpf}}</a></td>
+                <td><a [routerLink]="['/restricted/cliente/form', cli.id]">{{cli.cpf}}</a></td>
                 <td>{{cli.nome}}</td>
                 <td>{{cli.sobrenome}}</td>
                 <td>{{cli.email}}</td>
-                <td>
-                    <a href="">Excluir</a>
-                </td>
+                <td><a href="javascript: return false;" (click)="confirmarExclusao(cli.id)">Excluir</a></td>
             </tr>
         </ng-template>
     </p-table>

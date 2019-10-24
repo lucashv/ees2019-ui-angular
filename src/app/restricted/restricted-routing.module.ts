@@ -15,8 +15,10 @@ const restrictedRoutes: Routes = [
         children: [
             { path: 'cliente', component: ClienteListComponent },
             { path: 'cliente/form', component: ClienteFormComponent },
+            { path: 'cliente/form/:id', component: ClienteFormComponent },
             { path: 'produto', component: ProdutoListComponent },
             { path: 'produto/form', component: ProdutoFormComponent },
+            { path: 'produto/form/:id', component: ProdutoFormComponent },
             { path: '**', redirectTo: 'cliente' }
         ]
     }
