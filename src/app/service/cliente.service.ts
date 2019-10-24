@@ -11,7 +11,7 @@ export class ClienteService extends BaseService {
     super(httpClient);
   }
 
-  getAll() {
+  getAll(): any {
     return this.doGet('/cliente');
   }
 }
