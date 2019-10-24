@@ -8,6 +8,7 @@ import { PasswordModule } from 'primeng/password';
 import { ButtonModule } from 'primeng/button';
 import { MenuModule } from 'primeng/menu';
 import { MenubarModule } from 'primeng/menubar';
+import { ToastModule } from 'primeng/toast';
 
 @NgModule({
   declarations: [],
@@ -19,7 +20,8 @@ import { MenubarModule } from 'primeng/menubar';
     PasswordModule,
     ButtonModule,
     MenuModule,
-    MenubarModule
+    MenubarModule,
+    ToastModule
   ],
   exports: [
     CalendarModule,
@@ -28,7 +30,8 @@ import { MenubarModule } from 'primeng/menubar';
     PasswordModule,
     ButtonModule,
     MenuModule,
-    MenubarModule
+    MenubarModule,
+    ToastModule
   ]
 })
 export class PrimengModule { }

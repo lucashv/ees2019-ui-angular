@@ -18,6 +18,7 @@ import { ProdutoModule } from './produto/produto.module';
     ProdutoModule
   ],
   exports: [
+    PrimengModule,
     RestrictedRoutingModule,
     ClienteModule,
     ProdutoModule

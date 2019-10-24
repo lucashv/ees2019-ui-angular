@@ -2,35 +2,37 @@
     <h3>Cliente - Formulário</h3>
     <hr/>
     <div class="ui-fluid">
-        <div class="ui-g">
-            <div class="ui-g-6 ui-sm-12" style="margin: auto">
-                <label for="iptNome">Nome:</label>
-                <input pInputText id="iptNome" type="text" />
-            </div>
-            <div class="ui-g-6 ui-sm-12" style="margin: auto">
-                <label for="iptSobrenome">Sobrenome:</label>
-                <input pInputText id="iptSobrenome" type="text" />
-            </div>
+        <form [formGroup]="clienteForm" (ngSubmit)="onSubmitForm()">
+            <input type="hidden" formControlName="id" name="id" />
+            <div class="ui-g">
+                <div class="ui-g-6 ui-sm-12" style="margin: auto">
+                    <label for="iptNome">Nome:</label>
+                    <input pInputText id="iptNome" type="text" formControlName="nome" />
+                </div>
+                <div class="ui-g-6 ui-sm-12" style="margin: auto">
+                    <label for="iptSobrenome">Sobrenome:</label>
+                    <input pInputText id="iptSobrenome" type="text" formControlName="sobrenome" />
+                </div>
 
-            <div class="ui-g-12 ui-sm-12" style="margin: auto">
-                <label for="iptCPF">CPF:</label>
-                <input pInputText id="iptCPF" type="text" />
-            </div>
+                <div class="ui-g-12 ui-sm-12" style="margin: auto">
+                    <label for="iptCPF">CPF:</label>
+                    <input pInputText id="iptCPF" type="text" formControlName="cpf" />
+                </div>
 
-            <div class="ui-g-6 ui-sm-12" style="margin: auto">
-                <label for="iptEmail">Email:</label>
-                <input pInputText id="iptEmail" type="text" />
-            </div>
-            <div class="ui-g-6 ui-sm-12" style="margin: auto">
-                <label for="iptSenha">Senha:</label>
-                <input pInputText id="iptSenha" type="text" />
-            </div>
+                <div class="ui-g-6 ui-sm-12" style="margin: auto">
+                    <label for="iptEmail">Email:</label>
+                    <input pInputText id="iptEmail" type="text" formControlName="email" />
+                </div>
+                <div class="ui-g-6 ui-sm-12" style="margin: auto">
+                    <label for="iptSenha">Senha:</label>
+                    <input pInputText id="iptSenha" type="text" formControlName="senha"/>
+                </div>
 
-            <div class="ui-g-12 button-bar">
-                <button>Salvar</button>
-                <a class="button" routerLink="..">Cancelar</a>
+                <div class="ui-g-12 button-bar">
+                    <button type="submit" [disabled]="!clienteForm.valid">Salvar</button>
+                    <a class="button" routerLink="..">Cancelar</a>
+                </div>            
             </div>
-            
-        </div>
+        </form>
     </div>    
 </div>

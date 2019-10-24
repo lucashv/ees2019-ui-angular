@@ -10,6 +10,7 @@ import { RestrictedModule } from './restricted/restricted.module';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { InterceptorModule } from './auth/interceptor.module';
+import { MessageService } from 'primeng/api';
 
 @NgModule({
   declarations: [
@@ -27,7 +28,7 @@ import { InterceptorModule } from './auth/interceptor.module';
     InterceptorModule,
     RestrictedModule
   ],
-  providers: [],
+  providers: [ MessageService ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
