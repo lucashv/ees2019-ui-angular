@@ -1,8 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
+import { Router, ActivatedRoute } from '@angular/router';
 import { FormGroup, FormControl } from '@angular/forms';
 import { ClienteService } from 'src/app/service/cliente.service';
 import { MessageService } from 'primeng/api';
+import { Cliente } from 'src/app/model/Cliente';
 
 @Component({
   selector: 'app-cliente-form',
@@ -22,11 +23,31 @@ export class ClienteFormComponent implements OnInit {
 
   constructor(
     private router: Router,
+    private route: ActivatedRoute,
     private clienteService: ClienteService,
     private messageService: MessageService
   ) { }
 
   ngOnInit() {
+    let id = null;
+    this.route.queryParams.subscribe(p => {
+      id = p['id'];
+    });
+    if (id !== null) {
+      this.clienteService.getById(id).subscribe(
+        ret => {
+          const cli: Cliente = ret;
+          this.clienteForm.setValue({
+            id: cli.id,
+            cpf: cli.cpf,
+            nome: cli.nome,
+            sobrenome: cli.sobrenome,
+            email: cli.email,
+            senha: cli.senha
+          });
+        }
+      );
+    }
   }
 
   onSubmitForm() {

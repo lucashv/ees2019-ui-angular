@@ -11,14 +11,18 @@
                 <th>Nome</th>
                 <th>Sobrenome</th>
                 <th>Email</th>
+                <th>Excluir</th>
             </tr>
         </ng-template>
         <ng-template pTemplate="body" let-cli>
             <tr>
-                <td>{{cli.cpf}}</td>
+                <td><a href="/restricted/cliente/form?id={{cli.id}}">{{cli.cpf}}</a></td>
                 <td>{{cli.nome}}</td>
                 <td>{{cli.sobrenome}}</td>
                 <td>{{cli.email}}</td>
+                <td>
+                    <a href="">Excluir</a>
+                </td>
             </tr>
         </ng-template>
     </p-table>

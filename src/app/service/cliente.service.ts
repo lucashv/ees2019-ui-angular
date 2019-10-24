@@ -17,7 +17,11 @@ export class ClienteService extends BaseService {
     return this.doGet(this.APINAME);
   }
 
-  save(cliente: Cliente) {    
+  getById(id: number) {
+    return this.doGet(this.APINAME + '/' + id);
+  }
+
+  save(cliente: Cliente) {
     return this.doPost(this.APINAME, cliente);
   }
 }
