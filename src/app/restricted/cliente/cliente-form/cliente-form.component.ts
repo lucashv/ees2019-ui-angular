@@ -16,7 +16,7 @@ export class ClienteFormComponent implements OnInit {
   }
 
   cancelar() {
-    this.router.navigate(['/cliente']);
+    this.router.navigate(['cliente']);
   }
 
 }

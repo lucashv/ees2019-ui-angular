@@ -24,7 +24,7 @@ export class ClienteListComponent implements OnInit {
   }
 
   abrirForm() {
-    this.router.navigate(['cliente/form']);
+    this.router.navigate(['/restricted/cliente/form']);
   }
 
 }

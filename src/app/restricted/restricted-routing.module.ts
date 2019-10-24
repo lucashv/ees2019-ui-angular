@@ -4,6 +4,8 @@ import { AuthGuard } from '../auth/auth.guard';
 import { HomeComponent } from './home/home.component';
 import { ClienteListComponent } from './cliente/cliente-list/cliente-list.component';
 import { ClienteFormComponent } from './cliente/cliente-form/cliente-form.component';
+import { ProdutoListComponent } from './produto/produto-list/produto-list.component';
+import { ProdutoFormComponent } from './produto/produto-form/produto-form.component';
 
 const restrictedRoutes: Routes = [
     {
@@ -13,6 +15,8 @@ const restrictedRoutes: Routes = [
         children: [
             { path: 'cliente', component: ClienteListComponent },
             { path: 'cliente/form', component: ClienteFormComponent },
+            { path: 'produto', component: ProdutoListComponent },
+            { path: 'produto/form', component: ProdutoFormComponent },
             { path: '**', redirectTo: 'cliente' }
         ]
     }

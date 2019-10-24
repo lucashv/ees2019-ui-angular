@@ -2,11 +2,16 @@ import { Component, OnInit } from '@angular/core';
 import { MenuItem } from 'primeng/api';
 import { Router } from '@angular/router';
 import { AuthGuard } from 'src/app/auth/auth.guard';
+import { homeDefaultAnimation } from 'src/app/utils/animations';
+
 
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
-  styleUrls: ['./home.component.scss']
+  styleUrls: ['./home.component.scss'],
+  animations: [
+    homeDefaultAnimation
+  ]
 })
 export class HomeComponent implements OnInit {
 
@@ -19,9 +24,9 @@ export class HomeComponent implements OnInit {
 
   ngOnInit() {
     this.menuItems = [
-      { label: 'Cliente' },
-      { label: 'Pedido' },
-      { label: 'Produto' },
+      { label: 'Cliente', routerLink: 'cliente' },
+      { label: 'Pedido', routerLink: 'pedido'  },
+      { label: 'Produto', routerLink: 'produto'  },
     ];
   }
 
