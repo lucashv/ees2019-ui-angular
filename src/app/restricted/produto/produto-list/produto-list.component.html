@@ -1,5 +1,24 @@
 <div class="main-content">
     <h3>Produtos</h3>
     <hr/>
+    <p>
+        <p-button label="Novo" (click)="abrirForm()"></p-button>
+    </p>
+    <p-table [value]="produtos" tableStyleClass="prime-table">
+        <ng-template pTemplate="header">
+            <tr>
+                <th>Nome</th>
+                <th>Descrição</th>
+            </tr>
+        </ng-template>
+        <ng-template pTemplate="body" let-prod>
+            <tr>
+                <td><a [routerLink]="['/restricted/produto/form', cli.id]">{{prod.nome}}</a></td>
+                <td>{{prod.nome}}</td>
+                <td>{{prod.descricao}}</td>
+                <td><a href="javascript: return false;" (click)="confirmarExclusao(prod.id)">Excluir</a></td>
+            </tr>
+        </ng-template>
+    </p-table>
 </div>
     

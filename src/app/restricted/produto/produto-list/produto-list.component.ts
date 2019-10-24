@@ -12,4 +12,8 @@ export class ProdutoListComponent implements OnInit {
   ngOnInit() {
   }
 
+  abrirForm() {
+    this.router.navigate(['/restricted/produto/form']);
+  }
+
 }
