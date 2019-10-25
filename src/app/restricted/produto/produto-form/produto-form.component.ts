@@ -2,7 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl } from '@angular/forms';
 import { ProdutoService } from 'src/app/service/produto.service';
 import { MessageService } from 'primeng/api';
-import { Router } from '@angular/router';
+import { Router, ActivatedRoute } from '@angular/router';
+import { Produto } from 'src/app/model/Produto';
 
 @Component({
   selector: 'app-produto-form',
@@ -19,11 +20,27 @@ export class ProdutoFormComponent implements OnInit {
 
   constructor(
     private router: Router,
+    private route: ActivatedRoute,
     private produtoService: ProdutoService,
     private messageService: MessageService
   ) { }
 
   ngOnInit() {
+    let id = null;
+    this.route.paramMap.subscribe(p => {
+      id = p.get('id');
+    });
+    if (id !== null) {
+      this.produtoService.getById(id).subscribe(
+        (ret: Produto) => {
+          this.produtoForm.setValue({
+            id: ret.id,
+            nome: ret.nome,
+            descricao: ret.descricao
+          });
+        }
+      );
+    }
   }
 
   onSubmitForm() {

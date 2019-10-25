@@ -24,8 +24,14 @@ export class HomeComponent implements OnInit {
 
   ngOnInit() {
     this.menuItems = [
+      {
+        label: 'Pedidos',
+        items: [
+          { label: 'Novo Pedido', routerLink: 'pedido/form'},
+          { label: 'Buscar Pedidos', routerLink: 'pedido' }
+        ]
+      },
       { label: 'Cliente', routerLink: 'cliente' },
-      { label: 'Pedido', routerLink: 'pedido'  },
       { label: 'Produto', routerLink: 'produto'  },
     ];
   }
