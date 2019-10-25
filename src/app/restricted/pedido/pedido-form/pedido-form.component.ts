@@ -77,6 +77,9 @@ export class PedidoFormComponent implements OnInit {
       quantidade: this.pedidoForm.controls.qtd.value
     };
     this.itensPedido.push(item);
+    this.produtoSelecionado = null;
+    this.pedidoForm.controls.produto.setValue('');
+    this.pedidoForm.controls.qtd.setValue('');
   }
 
   salvarPedido() {
@@ -85,6 +88,10 @@ export class PedidoFormComponent implements OnInit {
     this.pedidoService.save(this.pedido).subscribe(
       ret => {
         this.messageService.add({severity: 'success', summary: 'Sucesso', detail: 'Pedido criado com sucesso!'});
+        this.pedidoForm.reset();
+        this.clienteSelecionado = null;
+        this.produtoSelecionado = null;
+        this.itensPedido = [];
       },
       err => {
         console.log(err);
