@@ -9,7 +9,7 @@ import { HttpClient } from '@angular/common/http';
 export class PedidoService extends RestServiceService<Pedido> {
 
   constructor(httpClient: HttpClient) {
-    super('/cliente', httpClient);
+    super('/pedido', httpClient);
   }
 
 }

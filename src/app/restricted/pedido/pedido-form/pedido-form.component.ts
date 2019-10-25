@@ -5,6 +5,9 @@ import { ClienteService } from 'src/app/service/cliente.service';
 import { Cliente } from 'src/app/model/Cliente';
 import { Produto } from 'src/app/model/Produto';
 import { ProdutoService } from 'src/app/service/produto.service';
+import { ItemPedido } from 'src/app/model/ItemPedido';
+import { Pedido } from 'src/app/model/Pedido';
+import { MessageService } from 'primeng/api';
 
 @Component({
   selector: 'app-pedido-form',
@@ -18,6 +21,8 @@ export class PedidoFormComponent implements OnInit {
   criterioBuscaProduto: string;
   opcoesProdutos: Produto[];
   produtoSelecionado: Produto;
+  itensPedido: ItemPedido[] = [];
+  pedido: Pedido;
 
   pedidoForm = new FormGroup({
     id: new FormControl(''),
@@ -30,10 +35,12 @@ export class PedidoFormComponent implements OnInit {
   constructor(
     private pedidoService: PedidoService,
     private clienteService: ClienteService,
-    private produtoService: ProdutoService
+    private produtoService: ProdutoService,
+    private messageService: MessageService
   ) { }
 
   ngOnInit() {
+    this.pedido = new Pedido();
   }
 
   buscarClientePorCpf(event) {
@@ -47,6 +54,7 @@ export class PedidoFormComponent implements OnInit {
   selecionarCliente(event: Cliente) {
     this.clienteSelecionado = event;
     this.pedidoForm.controls.cliente.setValue(event.nome);
+    this.pedido.cliente = event;
   }
 
   buscarProduto(event) {
@@ -59,6 +67,30 @@ export class PedidoFormComponent implements OnInit {
 
   selecionarProduto(event: Produto) {
     this.produtoSelecionado = event;
+  }
+
+  addItem() {
+    const item: ItemPedido = {
+      id: null,
+      produto: this.produtoSelecionado,
+      pedido: null,
+      quantidade: this.pedidoForm.controls.qtd.value
+    };
+    this.itensPedido.push(item);
+  }
+
+  salvarPedido() {
+    this.pedido.data = new Date();
+    this.pedido.itens = this.itensPedido;
+    this.pedidoService.save(this.pedido).subscribe(
+      ret => {
+        this.messageService.add({severity: 'success', summary: 'Sucesso', detail: 'Pedido criado com sucesso!'});
+      },
+      err => {
+        console.log(err);
+        this.messageService.add({severity: 'error', summary: 'Erro', detail: 'Houve um erro ao criar o Pedido!'});
+      }
+    );
   }
 
 }
