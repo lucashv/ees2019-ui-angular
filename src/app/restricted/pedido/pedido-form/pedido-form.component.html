@@ -20,11 +20,15 @@
             
                 <div class="ui-g-8 ui-sm-12" style="margin: auto">
                     <label for="iptProduto">Produto:</label>
-                    <input pInputText id="iptProduto" type="text"  />
+                    <p-autoComplete formControlName="produto"
+                        [suggestions]="opcoesProdutos"
+                        (completeMethod)="buscarProduto($event)"
+                        (onSelect)="selecionarProduto($event)"
+                        field="nome"></p-autoComplete>
                 </div>
                 <div class="ui-g-2 ui-sm-12" style="margin: auto">
-                    <label for="iptProduto">Qtd:</label>
-                    <input pInputText id="iptProduto" type="text"  />
+                    <label for="iptQtd">Qtd:</label>
+                    <input pInputText id="iptQtd" type="text" formControlName="qtd"  />
                 </div>
                 <div class="ui-g-2 ui-sm-12" style="margin: auto">
                     <br/>

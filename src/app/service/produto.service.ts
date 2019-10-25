@@ -12,4 +12,8 @@ export class ProdutoService extends RestServiceService<Produto> {
     super('/produto', httpClient);
   }
 
+  public findByNome(nome: string) {
+    return this.doGet(this.apiName + '/pornome/' + nome);
+  }
+
 }
