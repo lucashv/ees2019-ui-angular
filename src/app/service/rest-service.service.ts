@@ -14,19 +14,19 @@ export class RestServiceService<T> extends BaseService {
     this.apiName = apiName;
   }
 
-  getAll(): any {
+  public getAll(): any {
     return this.doGet(this.apiName);
   }
 
-  getById(id: number) {
+  public getById(id: number) {
     return this.doGet(this.apiName + '/' + id);
   }
 
-  save(obj: T) {
+  public save(obj: T) {
     return this.doPost(this.apiName, obj);
   }
 
-  excluir(id: number) {
+  public excluir(id: number) {
     return this.doDelete(this.apiName + '/' + id);
   }
 }

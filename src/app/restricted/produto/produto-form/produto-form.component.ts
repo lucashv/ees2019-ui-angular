@@ -27,12 +27,12 @@ export class ProdutoFormComponent implements OnInit {
   }
 
   onSubmitForm() {
-    const clienteDto = {
+    const produtoDto = {
       id: this.produtoForm.get('id').value === '' ? null : this.produtoForm.get('id').value,
       nome: this.produtoForm.get('nome').value,
       descricao: this.produtoForm.get('descricao').value
     };
-    this.produtoService.save(clienteDto).subscribe(
+    this.produtoService.save(produtoDto).subscribe(
       ret => {
         this.messageService.add({severity: 'success', summary: 'Sucesso', detail: 'Produto Salvo com sucesso!'});
         this.router.navigate(['/restricted/produto']);
