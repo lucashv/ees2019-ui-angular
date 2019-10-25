@@ -12,4 +12,8 @@ export class PedidoService extends RestServiceService<Pedido> {
     super('/pedido', httpClient);
   }
 
+  public findByIdCliente(idCliente: number) {
+    return this.doGet(this.apiName + '/cliente/' + idCliente);
+  }
+
 }

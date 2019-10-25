@@ -16,4 +16,8 @@ export class ClienteService extends RestServiceService<Cliente> {
     return this.doGet(this.apiName + '/porcpf/' + cpf);
   }
 
+  public findByNome(nome: string) {
+    return this.doGet(this.apiName + '/pornome/' + nome);
+  }
+
 }

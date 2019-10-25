@@ -1,4 +1,47 @@
 <div class="main-content">
     <h3>Pedidos</h3>
-    <hr/>    
+    <hr/> 
+    <div class="ui-fluid">
+        <form [formGroup]="formBusca" (ngSubmit)="buscarPedidos()">
+            <div class="ui-g">            
+                <div class="ui-g-2 ui-sm-12" style="margin: auto">
+                    <label for="iptCPF">CPF:</label>
+                    <p-autoComplete id="iptCPF" formControlName="cpf"
+                        [suggestions]="opcoesCliente" 
+                        (completeMethod)="buscarCliente($event)"
+                        (onSelect)="selecionarCliente($event)"
+                        field="cpf"></p-autoComplete>
+                </div>
+                <div class="ui-g-9 ui-sm-12" style="margin: auto">
+                    <label for="iptCliente">Cliente:</label>
+                    <input pInputText id="iptCliente" type="text" formControlName="cliente" />
+                </div>
+                <div class="ui-g-1 ui-sm-12" style="margin: auto">
+                    <br/>
+                    <button type="submit">Buscar</button>
+                </div>
+            </div>
+        </form>
+        <div class="ui-g">
+            <div class="ui-g-12 ui-sm-12" style="margin: auto">
+                Pedidos
+                <p-table [value]="pedidos" tableStyleClass="prime-table">
+                    <ng-template pTemplate="header">
+                        <tr>
+                            <th>Cliente</th>
+                            <th>Pedido</th>
+                            <th>Data</th>
+                        </tr>
+                    </ng-template>
+                    <ng-template pTemplate="body" let-ped>
+                        <tr>
+                            <td>{{ped.cliente.nome}}</td>
+                            <td>{{ped.id}}</td>
+                            <td>{{ped.data}}</td>
+                        </tr>
+                    </ng-template>
+                </p-table>
+            </div>
+        </div>
+    </div> 
 </div>
