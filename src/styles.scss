@@ -71,5 +71,16 @@ body {
         color: white;
     }
 
+    button.fillButton {
+        align-items: center;
+        padding: 8px 16px;
+        border-radius: 2px;
+        font-size: $fontSize;
+        cursor: pointer;
+        background-color: #007ad9;
+        color: white;
+        border: none;
+    }
+
 }
 

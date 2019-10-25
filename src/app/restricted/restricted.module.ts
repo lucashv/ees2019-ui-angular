@@ -5,6 +5,7 @@ import { HomeComponent } from './home/home.component';
 import { RestrictedRoutingModule } from './restricted-routing.module';
 import { PrimengModule } from '../primeng.module';
 import { ProdutoModule } from './produto/produto.module';
+import { PedidoModule } from './pedido/pedido.module';
 
 @NgModule({
   declarations: [
@@ -15,13 +16,15 @@ import { ProdutoModule } from './produto/produto.module';
     PrimengModule,
     RestrictedRoutingModule,
     ClienteModule,
-    ProdutoModule
+    ProdutoModule,
+    PedidoModule
   ],
   exports: [
     PrimengModule,
     RestrictedRoutingModule,
     ClienteModule,
-    ProdutoModule
+    ProdutoModule,
+    PedidoModule
   ]
 })
 export class RestrictedModule { }

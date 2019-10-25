@@ -12,4 +12,8 @@ export class ClienteService extends RestServiceService<Cliente> {
     super('/cliente', httpClient);
   }
 
+  public findByCpf(cpf: string) {
+    return this.doGet(this.apiName + '/porcpf/' + cpf);
+  }
+
 }

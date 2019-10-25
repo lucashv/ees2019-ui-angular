@@ -6,8 +6,7 @@ import { HttpClient } from '@angular/common/http';
   providedIn: 'root'
 })
 export class RestServiceService<T> extends BaseService {
-  private apiName: string;
-
+  protected apiName: string;
 
   constructor(apiName: string, httpClient: HttpClient) {
     super(httpClient);

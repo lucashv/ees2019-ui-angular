@@ -1,0 +1,61 @@
+<div class="main-content">
+    <h3>Realizar Pedido</h3>
+    <hr/> 
+    <div class="ui-fluid">
+        <form [formGroup]="pedidoForm" (ngSubmit)="onSubmitForm()">
+            <input type="hidden" formControlName="id" name="id" />
+            <div class="ui-g">
+                <div class="ui-g-2 ui-sm-12" style="margin: auto">
+                    <label for="iptCpfCliente">CPF:</label>
+                    <p-autoComplete formControlName="cpf" 
+                        [suggestions]="opcoesClientes" 
+                        (completeMethod)="buscarClientePorCpf($event)"
+                        (onSelect)="selecionarCliente($event)"
+                        field="cpf"></p-autoComplete>
+                </div>
+                <div class="ui-g-10 ui-sm-12" style="margin: auto">
+                    <label for="iptCliente">Cliente:</label>
+                    <input pInputText id="iptCliente" type="text" formControlName="cliente" />
+                </div>
+            
+                <div class="ui-g-8 ui-sm-12" style="margin: auto">
+                    <label for="iptProduto">Produto:</label>
+                    <input pInputText id="iptProduto" type="text"  />
+                </div>
+                <div class="ui-g-2 ui-sm-12" style="margin: auto">
+                    <label for="iptProduto">Qtd:</label>
+                    <input pInputText id="iptProduto" type="text"  />
+                </div>
+                <div class="ui-g-2 ui-sm-12" style="margin: auto">
+                    <br/>
+                    <button id="btnAdd">+</button>
+                </div>
+            
+                <div class="ui-g-12 ui-sm-12" style="margin: auto">
+                    Items
+                    <p-table [value]="itemsPedido" tableStyleClass="prime-table">
+                        <ng-template pTemplate="header">
+                            <tr>
+                                <th>Produto</th>
+                                <th>Qtd</th>
+                                <th>Excluir</th>
+                            </tr>
+                        </ng-template>
+                        <ng-template pTemplate="body" let-cli>
+                            <tr>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                            </tr>
+                        </ng-template>
+                    </p-table>
+                </div>
+
+                <div class="ui-g-12 button-bar">
+                    <button type="submit" [disabled]="!pedidoForm.valid" class="fillButton">Salvar Pedido</button>
+                    <a class="button" [routerLink]="['/restricted/pedido']">Cancelar</a>
+                </div>  
+            </div>
+        </form>
+    </div>
+</div>
