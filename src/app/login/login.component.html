@@ -1,15 +1,16 @@
 <div class="ui-g login-container">
     <div class="ui-sm-12 ui-md-6 ui-lg-3 login">
-        <form (ngSubmit)="onLogin()">
+        <p-toast></p-toast>
+        <form [formGroup]="formLogin" (ngSubmit)="onLogin()">
             <div class="ui-g">                       
                 <div class="ui-sm-12 ui-md-12 ui-fluid">
                     <label for="itUsuario">Usuário:</label>
-                    <input id="itUsuario" type="text" pInputText />  
+                    <input id="itUsuario" type="text" pInputText formControlName="username" />  
                 </div>
 
                 <div class="ui-sm-12 ui-md-12 ui-fluid">
                     <label for="pwPassword">Senha:</label>
-                    <input id="pwPassword" type="password" pPassword feedback="false" />
+                    <input id="pwPassword" type="password" pPassword [feedback]="false" formControlName="password"/>
                 </div>            
                 
                 <div class="ui-sm-12 ui-md-12 ui-fluid">                
