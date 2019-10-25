@@ -1,5 +1,25 @@
 <div class="main-content">
     <h3>Produto - Formulário</h3>
     <hr/>
+    <div class="ui-fluid">
+        <form [formGroup]="produtoForm" (ngSubmit)="onSubmitForm()">
+            <input type="hidden" formControlName="id" name="id" />
+            <div class="ui-g">
+                <div class="ui-g-6 ui-sm-12" style="margin: auto">
+                    <label for="iptNome">Nome:</label>
+                    <input pInputText id="iptNome" type="text" formControlName="nome" />
+                </div>
+                <div class="ui-g-6 ui-sm-12" style="margin: auto">
+                    <label for="iptDescricao">Descrição:</label>
+                    <input pInputText id="iptDescricao" type="text" formControlName="descricao" />
+                </div>
+
+                <div class="ui-g-12 button-bar">
+                    <button type="submit" [disabled]="!produtoForm.valid">Salvar</button>
+                    <a class="button" [routerLink]="['/restricted/produto']">Cancelar</a>
+                </div>            
+            </div>
+        </form>
+    </div> 
 </div>
     
