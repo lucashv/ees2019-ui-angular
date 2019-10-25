@@ -4,6 +4,7 @@ import { ClienteService } from 'src/app/service/cliente.service';
 import { Pedido } from 'src/app/model/Pedido';
 import { FormGroup, FormControl } from '@angular/forms';
 import { PedidoService } from 'src/app/service/pedido.service';
+import { ItemPedido } from 'src/app/model/ItemPedido';
 
 @Component({
   selector: 'app-pedido-list',
@@ -11,10 +12,12 @@ import { PedidoService } from 'src/app/service/pedido.service';
   styleUrls: ['./pedido-list.component.scss']
 })
 export class PedidoListComponent implements OnInit {
+  exibirJanelaDetalhes = false;
   criterioCliente: Cliente;
   opcoesCliente: Cliente[];
   clienteSelecionado: Cliente;
   pedidos: Pedido[];
+  itensPedido: ItemPedido[];
 
   formBusca = new FormGroup({
     cpf: new FormControl(''),
@@ -48,5 +51,10 @@ export class PedidoListComponent implements OnInit {
         this.pedidos = ret;
       }
     );
+  }
+
+  exibirDetalhes(ped: Pedido) {
+    this.itensPedido = ped.itens;
+    this.exibirJanelaDetalhes = true;
   }
 }

@@ -11,6 +11,7 @@ import { MenubarModule } from 'primeng/menubar';
 import { ToastModule } from 'primeng/toast';
 import { ConfirmDialogModule } from 'primeng/confirmdialog';
 import { AutoCompleteModule } from 'primeng/autocomplete';
+import { DialogModule } from 'primeng/dialog';
 
 @NgModule({
   declarations: [],
@@ -25,7 +26,8 @@ import { AutoCompleteModule } from 'primeng/autocomplete';
     MenubarModule,
     ToastModule,
     ConfirmDialogModule,
-    AutoCompleteModule
+    AutoCompleteModule,
+    DialogModule
   ],
   exports: [
     CalendarModule,
@@ -37,7 +39,8 @@ import { AutoCompleteModule } from 'primeng/autocomplete';
     MenubarModule,
     ToastModule,
     ConfirmDialogModule,
-    AutoCompleteModule
+    AutoCompleteModule,
+    DialogModule
   ]
 })
 export class PrimengModule { }
