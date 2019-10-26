@@ -39,7 +39,7 @@ export class ClienteListComponent implements OnInit {
           },
           err => {
             console.error(err);
-            this.messageService.add({severity: 'error', summary: 'Erro', detail: 'Não foi possível excluir o Cliente.'});
+            this.messageService.add({severity: 'error', summary: 'Erro', detail: 'O Cliente tem pedidos e não pode ser excluído!'});
           }
         );
       }
